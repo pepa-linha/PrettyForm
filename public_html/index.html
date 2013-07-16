@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<title>PrettyForm demo</title>
+
+	<link rel="stylesheet" href="css/PrettyForm.css" type="text/css" media="screen, projection">
+	<script src="js/PrettyForm.js"></script>
+	
+	<style>
+		body { font-family: Arial, sans-serif; font-size: 12px; }
+		.col { float: left; width: 49%; }
+		select option.group { color: red; }
+		table td { width: 130px; text-align: left; padding: 3px 0; }
+		span.link { font-size: 12px; text-decoration: underline; cursor: pointer; font-size: 11px; margin-left: 6px; }
+	</style>
+	
+</head>
+<body>
+
+	<div class="col">
+		
+		<h1>Classic Form</h1>
+
+		<form>
+			<table>
+
+				<tr>
+					<td>
+						Firstname:
+					</td>
+					<td>
+						<input type="text">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Gender:
+					</td>
+					<td>
+						<input type="radio" id="male" name="gender" checked="checked"> <label for="male">male</label>
+						<input type="radio" id="female" name="gender"> <label for="female">female</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Location:
+					</td>
+					<td>
+						<select>
+							<option class="group" value="1">Europe</option>
+								<option selected="selected" value="2">Czech Republic</option>
+								<option value="3">Slovakia</option>
+							<optgroup label="Other">
+								<option value="4">USA</option>
+								<option value="5">Australia</option>
+							</optgroup>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Message:</td>
+					<td><textarea cols="40" rows="6"></textarea></td>
+				</tr>
+
+				<tr>
+					<td>
+						Select file:
+					</td>
+					<td>
+						<input type="file">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Spam?
+					</td>
+					<td>
+						<input type="checkbox" id="spam" checked>
+						<label for="spam">I am not a spam</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<br>
+						<input type="submit">
+						<input type="reset">
+					</td>
+				</tr>
+				
+				
+			</table>
+
+		</form>
+
+	</div>
+	
+	<div class="col">
+		
+		<h1>Prettier Form</h1>
+
+		<form id="formjs">
+			<table>
+
+				<tr>
+					<td>
+						Firstname:
+					</td>
+					<td>
+						<input type="text" class="graphic">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Gender:
+					</td>
+					<td>
+						<input type="radio" id="male2" name="gender" class="graphic" checked="checked"> <label for="male2">male</label>
+						<input type="radio" id="female2" name="gender" class="graphic"> <label for="female2">female</label>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						Location:
+					</td>
+					<td>
+						<select class="graphic" id="selectLocation">
+							<option class="group">Europe</option>
+								<option selected="selected">Czech Republic</option>
+								<option>Slovakia</option>
+							<optgroup label="Other">
+								<option>USA</option>
+								<option>Australia</option>
+							</optgroup>
+						</select>
+						
+						<script>
+							function addLocation() {
+								
+								var e = document.getElementById('selectLocation');
+								if(!e.prettier) return;
+								
+								var key = prompt('Key');
+								
+								if(!key) return;
+								
+								var value = prompt('Value');
+								
+								if(key && value) {
+									try {
+										e.prettier.addOption(key, value);
+									} catch(e) {
+										alert(e);
+									}
+								}
+								
+							}
+
+						</script>
+						
+						<span class="link" onclick="addLocation()">Add location</span>
+						
+					</td>
+				</tr>
+
+				<tr>
+					<td>Message:</td>
+					<td><textarea cols="40" rows="6" class="graphic"></textarea></td>
+				</tr>
+
+				<tr>
+					<td>
+						Select file:
+					</td>
+					<td>
+						<input type="file" class="graphic">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						Spam?
+					</td>
+					<td>
+						<input type="checkbox" class="graphic" checked id="spam2"> <label for="spam2">I am not a spam</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<br>
+						<input type="submit" class="graphic" value="Send form">
+						<input type="reset" class="graphic" value="Reset">
+					</td>
+				</tr>
+				
+			</table>
+
+		</form>
+		
+	</div>
+	
+	<script>	
+		PrettyForm.makePrettier();
+	</script>
+	
+</body>
+</html>

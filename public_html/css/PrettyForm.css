@@ -1,0 +1,461 @@
+/**
+ * Pretty Form CSS
+ *
+ * @author Pepa Linha <pepa.linha@outlook.com>
+ * @version 0.9 beta 3
+ * @license BSD (http://creativecommons.org/licenses/BSD/)
+ */
+
+.hide {
+	display: none;
+}
+
+.ui-checkbox i,
+.ui-radio i,
+.ui-selectbox i,
+.ui-button {
+	background-image: url("../images/prettyform-grey.png");
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+}
+
+.ui-checkbox,
+.ui-radio,
+.ui-selectbox,
+.ui-textbox,
+.ui-button,
+.ui-file {
+	font: normal small Arial, sans-serif;
+	cursor: pointer;
+	_cursor: hand;
+	vertical-align: middle;
+	
+	
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	
+}
+
+.ui-checkbox:focus,
+.ui-radio:focus,
+.ui-textbox:focus,
+.ui-button:focus,
+.ui-file:focus {
+	outline: 0;
+}
+
+.ui-checkbox:focus span,
+.ui-radio:focus span {
+	outline: 1px dotted #aaa;
+}
+
+
+/**
+ * Checkbox control
+ */
+.ui-checkbox {
+	display: inline-block;
+	position: relative;
+	padding: 1px 2px 1px 0;
+}
+
+.ui-checkbox span {
+	padding: 1px 2px;
+	vertical-align: middle;
+}
+
+.ui-checkbox i {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	vertical-align: middle;
+	margin-right: 4px;
+	background-position: 0 0;
+	font-size: 1px;
+}
+
+.ui-checkbox.checked i {
+	background-position: -13px 0;
+}
+
+.ui-checkbox:hover i {
+	background-position: 0 -13px;
+}
+
+.ui-checkbox.checked:hover i {
+	background-position: -13px -13px;
+}
+
+.ui-checkbox.disabled:focus span {
+	outline: 0;
+}
+
+.ui-checkbox.disabled span {
+	color: #bbb;
+}
+
+.ui-checkbox.disabled i,
+.ui-checkbox.disabled:hover i {
+	background-position: 0 -26px;
+}
+
+.ui-checkbox.checked.disabled i,
+.ui-checkbox.checked.disabled:hover i {
+	background-position: -13px -26px;
+}
+
+
+/**
+ * Radio control
+ */
+.ui-radio {
+	display: inline-block;
+	position: relative;
+	padding: 1px 2px 1px 0;
+}
+
+.ui-radio span {
+	padding: 1px 2px;
+	vertical-align: middle;
+}
+
+.ui-radio i {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	vertical-align: middle;
+	background-position: -26px 0;
+	font-size: 1px;
+	margin-right: 4px;
+}
+
+.ui-radio.selected i {
+	background-position: -39px 0;
+}
+
+.ui-radio:hover i {
+	background-position: -26px -13px;
+}
+
+.ui-radio.selected:hover i {
+	background-position: -39px -13px;
+}
+
+.ui-radio.disabled:focus span {
+	outline: 0;
+}
+
+.ui-radio.disabled span {
+	color: #bbb;
+}
+
+.ui-radio.disabled i,
+.ui-radio.disabled:hover i {
+	background-position: -26px -26px;
+}
+
+.ui-radio.selected.disabled i,
+.ui-radio.selected.disabled:hover i {
+	background-position: -39px -26px;
+}
+
+
+/**
+ * Selectbox control
+ */
+.ui-selectbox {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #b1b1b1 #d0d0d0 #d0d0d0 #b1b1b1;
+	position: relative;
+	display: inline-block;
+	padding: 2px 0;
+	vertical-align: middle;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	cursor: pointer;
+	_cursor: hand;
+}
+
+.ui-selectbox span.current {
+	display: inline-block;
+	width: 100%;
+	padding: 2px 0;
+	white-space: nowrap;
+}
+
+.ui-selectbox dl {
+	position: absolute;
+	left: 0; top: 100%;
+	line-height: 1.6em;
+	display: block;
+	z-index: 999;
+	/*
+	box-shadow: 2px 2px 2px #d9d9d9;
+	-moz-box-shadow: 2px 2px 2px #d9d9d9;
+	*/
+}
+
+.ui-selectbox dl dt {
+	float: left;
+	clear: left;
+	white-space: nowrap;
+	color: #000;
+	background: #fff;
+	padding: 4px 3px;
+}
+
+.ui-selectbox dl dt.disabled {
+	cursor: auto;
+	color: #bbb;
+}
+
+.ui-selectbox dl dt.group {
+	font-weight: bold;
+	background: #efefef;
+	cursor: default;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.ui-selectbox dl dt.group.selectable {
+	cursor: pointer;
+}
+
+.ui-selectbox dl dt.selected {
+	background: #000;
+	color: #fff;
+}
+
+.ui-selectbox dl dt.hover {
+	background: #ccc;
+	color: #000;
+}
+
+.ui-selectbox.initialized {
+	padding-left: 2px;
+	padding-right: 20px;
+}
+
+.ui-selectbox.initialized dl {
+	border: 1px solid #aaa;
+	width: 100%;
+	margin: 1px 0 0 -1px;
+	max-height: 170px;
+	_height: 170px;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	&overflow-y: scroll; /* ie7 shows scroll after hover */
+	_overflow-y: auto;
+
+	_width: auto;
+	display: none;	
+}
+
+.ui-selectbox.initialized dl dt {
+	width: 100%;
+	float: none;
+	display: block;
+	padding-left: 5px;
+}
+
+/* fix ie5 & ie6 */
+
+/* !!nutne zmenit!! pro ie5 & ie6
+pri zmene paddingu u .ui-selectbox.initialized (2 + 20 = 22)
+  a mínus padding-left u .ui-selectbox.initialized dl dt (5)
+  a plus sirka borderu = 2px
+!!! */
+
+.ie5 .ui-selectbox.initialized dl dt {
+	padding-right: 23px; /* + 4px ??? */
+
+	/*
+		nutné změnit i ve skriptu - // fix ie5 width
+	*/
+}
+
+.ie6 .ui-selectbox.initialized dl dt {
+	padding-right: 19px;
+}
+
+.ui-selectbox.open dl {
+	display: block;
+}
+
+.ui-selectbox:focus {
+	outline: 0;
+}
+
+.ui-selectbox.open:focus span.current {
+	outline: 1px dotted black;
+	background: #fff;
+	color: #000;
+}
+
+.ui-selectbox:focus span.current {
+	background: #000;
+	color: #fff;
+}
+
+.ui-selectbox {
+	background-position: 0 -39px;
+}
+
+.ui-selectbox i.button {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 16px;
+	vertical-align: middle;
+	background-position: 0 -39px;
+	font-size: 1px;
+	border-left: 1px solid #d0d0d0;
+}
+
+.ui-selectbox i.button i.arrow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url("../images/arrow.gif") center center no-repeat;
+}
+
+.ui-selectbox:hover i.button,
+.ui-selectbox.open i.button,
+.ui-selectbox.hover i .button {
+	background-position: 0 -79px;
+	border-left: 1px solid #b1b1b1;
+}
+
+.ui-selectbox.open i.button i.arrow {
+	margin-top: 1px;
+}
+
+.ui-selectbox:hover,
+.ui-selectbox.open,
+.ui-selectbox.hover {
+	border-color: #939393 #b1b1b1 #b1b1b1 #939393;
+}
+
+.ui-selectbox:active i.button,
+.ui-selectbox.open i.button {
+	background-position: 0 -120px;
+	border-left: 1px solid #939393;
+}
+
+
+/**
+ * Text input control
+ */
+.ui-text {
+	border-width: 1px;
+	border-style: solid;
+	border-color: #b1b1b1 #d0d0d0 #d0d0d0 #b1b1b1;
+	padding: 4px 3px;
+	cursor: auto;
+	margin: 0;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+}
+
+.ui-text:focus {
+	outline: 0;
+	border-color: #939393 #b1b1b1 #b1b1b1 #939393;
+}
+
+
+/**
+ * File control
+ */
+.ui-file {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	_cursor: hand;
+}
+
+.ui-file input.graphic {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	filter: alpha(opacity = 0); z-index: 2;
+}
+
+.ui-file input.graphic {
+	_width: 20px;
+	_height: auto;
+	filter: alpha(opacity=0);
+}
+
+.ui-file .ui-button {
+	vertical-align: middle;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+}
+
+.ui-file span {
+	vertical-align: middle;
+	margin-left: 8px;
+	white-space: nowrap;
+	position: relative;
+	z-index: 0;
+}
+
+.ui-file:focus {
+	outline: 0;
+}
+
+.ui-file:focus span {
+	outline: 1px dotted black;
+}
+
+
+/**
+ * Button control
+ */
+.ui-button {
+	background-position: 0 -39px;
+	max-height: 40px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d0d0d0 #b1b1b1 #b1b1b1 #d0d0d0;
+	margin: 2px 0;
+	padding: 3px 7px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	cursor: pointer;
+	_cursor: hand;
+	overflow: visible; /* fix ie */
+	box-shadow: 0 1px 0 #d9d9d9;
+	-moz-box-shadow: 0 1px 0 #d9d9d9;
+	position: relative;
+}
+
+.ui-button:hover,
+.ui-button.hover {
+	background-position: 0 -79px;
+	border-color: #b1b1b1 #939393 #939393 #b1b1b1;
+}
+
+.ui-button:active {
+	background-position: 0 -119px;
+	border-color: #939393;
+	box-shadow: none;
+	top: 1px;
+}
+
+.ui-button:focus {
+	border-color: #000;
+}
